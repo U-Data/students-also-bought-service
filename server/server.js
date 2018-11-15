@@ -33,9 +33,8 @@ app.get('/courses/:courseId/similarcourses', function (req, res) {
 });
 
 
-// POST method route
+// // POST method route
 // app.post('/input', function (req, res) {
-
 //   console.log('body', req.body);
 //   db.inputNewCourses(req.body.name, req.body.average_rating, req.body.regular_price, req.body.sales_price, (err, results) => {
 //     if (err) {
@@ -43,7 +42,29 @@ app.get('/courses/:courseId/similarcourses', function (req, res) {
 //     } else {
 //       res.status(201).send(null, results);
 //     }
-//   })
-// })
+//   });
+// });
+
+// // UPDATE method route
+// app.put('/courses/:courseId/similarcourses', function (req, res) {
+//   db.inputNewCourses(req.body.name, req.body.average_rating, req.body.regular_price, req.body.sales_price, (err, results) => {
+//     if (err) {
+//       res.status(500).send(err, null);
+//     } else {
+//       res.status(200).send(null, results);
+//     }
+//   });
+// });
+
+// // DELETE method route
+// app.delete('/courses/:courseId/similarcourses', function (req, res) {
+//   db.deleteCourseForStudent(req.params.courseId, (err, results) => {
+//     if (err) {
+//       res.status(500).send(err);
+//     } else {
+//       res.send(results);
+//     }
+//   });
+// });
 
 app.listen(3004, () => { console.log('listening on port', 3004  ); });

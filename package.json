@@ -22,7 +22,10 @@
       "^.+\\.(css|scss)$": "identity-obj-proxy"
     },
     "collectCoverage": true,
-    "coverageReporters": ["json", "html"]
+    "coverageReporters": [
+      "json",
+      "html"
+    ]
   },
   "dependencies": {
     "bluebird": "^3.5.2",

@@ -7,9 +7,9 @@ var _ = require('underscore');
 
 
 connection = mysql.createConnection({
-  host: 'rds-mysql-fec-studentsalsobought.c9exxoe1goym.us-west-1.rds.amazonaws.com',
-  user: 'sharkhouse23',
-  password: 'hackertobe89',
+  host: 'localhost',
+  user: 'root',
+  password: '',
   database: 'udemy_similar_component',
 });
 
@@ -31,7 +31,11 @@ const getStudentsPurchasesByCourseId = function(courseId) {
 
 const getPurchasesForStudent = function(studentId) {
   return connection.queryAsync('SELECT Courses.id, Courses.name, Courses.average_rating, Courses.regular_price, Courses.sales_price, Courses.purchase_count, Courses.lecture_time, Courses.last_update_month, Courses.last_update_year, Courses.image_url from Purchases INNER JOIN Courses ON Purchases.course_id = Courses.id where student_id = ?', [studentId]);
-}
+};
+
+const deleteCourseForStudent = function(courseId) {
+  return connection.queryAsync('DELETE from Purchases WHERE courseId = ?', [courseId]);
+};
 
 const arrayOfPurchasesForStudents = function(courseId, callback) {
   return getStudentsPurchasesByCourseId(courseId)
@@ -125,5 +129,6 @@ module.exports = {
   inputCourseInfo: inputCourseInfo,
   inputStudentInfo: inputStudentInfo,
   inputPurchaseInfo: inputPurchaseInfo,
-  arrayOfPurchasesForStudents: arrayOfPurchasesForStudents
+  arrayOfPurchasesForStudents: arrayOfPurchasesForStudents,
+  deleteCourseForStudent: deleteCourseForStudent
 };

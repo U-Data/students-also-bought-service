@@ -8,7 +8,8 @@ CREATE KEYSPACE udata WITH REPLICATION = {
 USE udata;
 
 CREATE TABLE IF NOT EXISTS Courses (
-  name VARCHAR PRIMARY KEY,
+  id INT PRIMARY KEY,
+  name VARCHAR,
   average_rating FLOAT,
   regular_price FLOAT,
   sales_price FLOAT,
@@ -19,6 +20,7 @@ CREATE TABLE IF NOT EXISTS Courses (
   image_url VARCHAR
 );
 
-COPY courses (name, average_rating, regular_price, sales_price, purchase_count, lecture_time, last_update_month, last_update_year, image_url) FROM '/Users/leemur/Documents/U-Data/students-also-bought-service/sdc/courses.tsv' WITH DELIMITER='\t';
+COPY courses (id, name, average_rating, regular_price, sales_price, purchase_count, lecture_time, last_update_month, last_update_year, image_url) FROM '/Users/leemur/Documents/U-Data/students-also-bought-service/sdc/courses.tsv' WITH DELIMITER='\t';
+
 
 

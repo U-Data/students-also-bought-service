@@ -1,0 +1,38 @@
+# config: 
+#   processor: "./stressTestScript.js"
+#   target: "http://localhost:3004"
+#   phases: 
+#     - duration: 30
+#       arrivalRate: 1
+#     - duration: 30
+#       arrivalRate: 10
+#     - duration: 30
+#       arrivalRate: 100
+#     - duration: 30
+#       arrivalRate: 1000
+      
+# senarios:
+#   - name: "searching similar courses by id"
+#   - flow: 
+#       - function: "fakeGenData"
+#       - get:
+#           url: "/courses/{{ courseId }}"
+#           json: 
+#             courseId: "{{ courseId }}"
+
+config:
+  target: "http://localhost:3004"
+  phases:
+    - duration: 30
+      arrivalRate: 500
+  processor: "./stressTestScript.js"
+
+scenarios:
+  - flow:
+      - function: "fakeGenData"
+      - loop:
+        - get:
+            url: "/courses/{{ courseId }}/similarcourses"
+            json:
+              courseId: "{{ courseId }}"
+          count: 1000

@@ -27,4 +27,10 @@ dist/
 #tsv files
 sdc/courses.tsv
 sdc/purchases.tsv
+sdc/students.tsv
+
+# NewRelic
+newrelic.js
+newrelic_agent.log
+server/newrelic_agent.log
 

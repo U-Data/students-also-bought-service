@@ -3,10 +3,10 @@ var _ = require('underscore');
 // var promise = require('bluebird');
 
 var client = new Client({
-  user: 'leemur', //mac username
-  host: 'localhost',
+  user: 'postgres', //mac username
+  host: 'ec2-13-52-79-139.us-west-1.compute.amazonaws.com', //postgres ec2 link
   database: 'udata', //mac username
-  password: '',
+  password: '123',
   port: 5432, //default postgres port
 });
 

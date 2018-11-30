@@ -31,8 +31,8 @@ DROP TABLE IF EXISTS Purchases;
 
 CREATE TABLE IF NOT EXISTS Purchases (
   id SERIAL PRIMARY KEY,
-  student_id INTEGER REFERENCES Students(id),
-  course_id INTEGER REFERENCES Courses(id)
+  student_id INT,
+  course_id INT
 );
 
 \COPY courses (id, name, average_rating, regular_price, sales_price, purchase_count, lecture_time, last_update_month, last_update_year, image_url) FROM '/Users/leemur/Documents/U-Data/students-also-bought-service/sdc/courses.tsv' WITH (FORMAT CSV, DELIMITER E'\t')
